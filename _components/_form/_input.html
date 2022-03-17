@@ -1,0 +1,15 @@
+{% comment %} 
+
+[[Required]]
+field : Djangoform.field 
+
+[[Parameters]]
+type = text
+placeholder
+input__class
+input__attr
+{% endcomment %}
+
+<input type="{{type|default:'text'}}" id="{{field.id_for_label}}" 
+    class="form-control {% if field.errors %}is-invalid{% endif %} {{input__class}}" name="{{field.html_name}}"
+    placeholder="{{placeholder}}" value="{% firstof field.value value%}" {{input__attr}} />
